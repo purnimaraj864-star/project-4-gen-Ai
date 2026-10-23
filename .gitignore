@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environment
+.venv
+.venv/
+venv/
+
+# Secrets — never commit
+.env
+
+# Generated vector store (rebuild with: python -m scripts.ingest)
+chroma_db/
+
+# Input data (add your own copy — see README)
+*.pdf
+data/
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
