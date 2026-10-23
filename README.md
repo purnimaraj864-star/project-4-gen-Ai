@@ -283,3 +283,4 @@ The Streamlit UI runs locally at `http://localhost:8501`.
 - `.env` contains API keys and is strictly excluded via `.gitignore`.
 - `.env.example` provides a sanitized configuration template without secrets.
 - ChromaDB persistence directory (`chroma_db/`) and virtual environments (`.venv/`) are excluded from version control.
+# project-4-gen-Ai
