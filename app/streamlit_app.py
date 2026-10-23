@@ -109,6 +109,23 @@ def main() -> None:
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
+    query_param_q = st.query_params.get("q")
+    if query_param_q and "query_param_run" not in st.session_state:
+        st.session_state.query_param_run = True
+        questions_to_run = []
+        if query_param_q == "all":
+            questions_to_run = SAMPLE_QUESTIONS
+        elif query_param_q in ["1", "2", "3", "4", "5"]:
+            idx = int(query_param_q) - 1
+            questions_to_run = [SAMPLE_QUESTIONS[idx]]
+        else:
+            questions_to_run = [query_param_q]
+
+        for q_item in questions_to_run:
+            res = answer_question(q_item)
+            st.session_state.messages.append(("user", q_item))
+            st.session_state.messages.append(("assistant", res))
+
     for role, result in st.session_state.messages:
         with st.chat_message(role):
             if role == "user":
